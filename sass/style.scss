@@ -1,0 +1,294 @@
+@import 'variables';
+@import 'mixins';
+
+
+html, body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    @include scrollbar;
+}
+
+
+/* NAVIGATION */
+.nav-container{
+    @include grid;
+    height: 6vh;
+    width: 100vw; 
+    position: relative;
+    z-index: 1;
+
+    /* MENU ON THE TOP */
+    .menu{
+        grid-column: 1 / 12 span;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        border-bottom: solid $rgba-light-primary-color 1px;
+        
+
+        
+        cursor: pointer;
+
+        a{
+            margin-right: 2em;
+            color: $accent-color;
+        }
+    }
+}
+
+/* MAIN CONTAINER */
+.main-container{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    white-space: nowrap;
+    height: 94vh;
+    width: 100vw;
+
+    *{
+        white-space: normal;
+    }
+
+    /* LATERAL MENU */
+    .lateral-menu{
+        display: flex;
+        flex-direction: column;
+        background-color: $text-primary-color;
+        color: $primary-text-color;
+        text-align: left;
+        @include shadow;
+        border-radius: 0em;
+        overflow-y: scroll;
+        
+        
+        .categoria{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .categoria a{
+                display: block;
+                font-size: 1em;
+                text-decoration: none;
+                margin: auto;
+                margin-bottom: .4em;
+                cursor: pointer;
+            }
+
+            .borderRadious{
+                @include borderRadious;
+                margin-top: 1em;
+                i{
+                    font-size: 2em; 
+                    color: $accent-color;
+                }
+                &:hover{
+                    box-shadow: 0px 5px 3px $rgba-light-primary-color;
+                }
+            }
+
+            /* SUB-CATEGORY */
+            
+            .sub-categoria{
+                display: flex;
+                flex-direction: column;
+                font-size: 0.8em;
+                text-align: center;
+
+                .h3{
+                    display: block;
+                    left: 1em;
+                }
+
+                a{
+                    display: block;
+                    font-size: 1em;
+                    text-decoration: none;
+                    margin: auto;
+                    margin-bottom: .4em;
+                    cursor: pointer;
+
+                    &:hover{
+                    @include shadow;
+
+                    
+                    }
+                }
+
+                
+            }
+            
+        }
+    
+        
+    }
+
+    /* FEATURES */
+    .content{
+        @include grid;
+        justify-content: center;
+        vertical-align: top;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* INFORMATION OF EMPLOYEES */
+        .hero-image{
+            grid-column: 1 / 12 span;
+            height: 95%;
+            width: 98%;
+            border: none;
+            background-color: white;
+            color: #333333;
+            @include shadow;
+            display: grid;
+            grid-template-columns: 78% 22%;
+
+            .position-content{
+                width: 95%;
+                height: 50%;
+                margin: 1em auto;
+                border-radius: 15px;
+                @include shadow;
+                
+                /* PERSONAL DETAILS */
+                /* MAIN INPUT DEATILS */
+                .input-form{
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    padding: 1em 1em 0 1em;
+
+                    .name, .last-name, .identification, .province, .state, .canton, .phone, .emergency-phone,
+                    .name-emerg, .departament, .position, .salary{
+                    width: 90%;
+                    }
+
+                    .details{ 
+                        width: 97%;
+                        grid-column: 1 / 3 span;
+                        label{
+                            display: block;
+                        }
+                    }
+                    input{
+                        width: 100%;
+                        
+                    }
+    
+                    input[type=text] {
+                        width: 100%;
+                        padding-bottom: 2px;
+                        margin: 5px 0;
+                        box-sizing: border-box;
+                        border: none;
+                        border-bottom: 1px solid $rgba-light-primary-color; 
+                    }
+
+                    /* ANIMATION */
+                    .input-form input:focus{
+                        outline: none;
+                    }
+
+                    .input-form input:focus + label, .input-form input.non-empty + label{
+                        font-size: 0.6em;
+                        margin-top: -12px;
+                    }
+
+                }
+
+            }
+
+
+            /* PICTURE OF THE AVATAR */
+            .position-content-picture{
+                display: grid;
+                grid-template-rows: 40% 60%;
+
+                /* PROFILE PHOTO */
+                .card-img{
+                    margin: 1em auto;
+                    display: inline-block;
+                    background-color: white;
+                    height: 100%;
+                    width: 94%;
+                    @include shadow;
+
+
+                    h4{
+                        text-align: center;
+                        margin-top: 2em;
+                    }
+
+                    /* AVATAR */
+                    .avatar{
+                        position: relative;
+
+
+                        input[type='file']{
+                            display: none;
+                        }
+
+                        .img{
+                            border-radius: 50%;
+                            width: 200px;
+                            height: 200px;
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            margin: 0 auto;
+                        }
+
+                        .avatar-selector{
+                            position: absolute;
+                            @include borderRadious;
+                            cursor: pointer;
+                        }
+    
+                    }
+
+                    
+                }
+
+                /* PICTURE OF THE AVATAR */
+            
+                /* BUTTONS */
+                .button{
+                    display: flex;
+                    flex-direction: column-reverse;
+                    align-items: center;
+
+                    .button-pay-stubs{
+                        @include button;
+                        @include margins;
+                    }
+
+                    .button-liquidacion{
+                        @include button;
+                        @include margins;
+                    }
+
+                    .button-vacaciones{
+                        @include button;
+                        @include margins;
+                        background-color: cadetblue;
+                    }
+
+                    .button-cancelar{
+                        @include button;
+                        @include margins;
+                        background-color: tomato;
+                        
+                    }
+
+                    .button-nuevo-colaborador{
+                        @include button;
+                        @include margins;
+                    }
+                }   
+                
+            }
+        }
+    }
+}

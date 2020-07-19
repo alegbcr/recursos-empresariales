@@ -1,0 +1,60 @@
+@mixin scrollbar{
+    
+    /* width */
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: $default-primary-color; 
+        border-radius: 50px;
+
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: $dark-primary-color; 
+    }
+}
+
+@mixin grid {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
+
+@mixin shadow{
+    box-shadow: 0px 3px 3px rgba(0, 151, 167, .3);
+    border-radius: 15px;
+}
+
+@mixin borderRadious{
+    background-color: $text-primary-color;
+    color: $primary-text-color;
+    @include shadow;
+    border-radius: 50%;
+    padding: 0.8em;
+    font-size: 1.2em;
+    right: 2.5em;
+    bottom: 0.5em;
+    cursor: pointer;
+}
+
+@mixin margins{
+    margin-bottom: 1em;
+}
+
+@mixin button{
+    display: block;
+    background-color: steelblue;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 0.8em;
+    border-radius: 25px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.12), 0px 2px 10px rgba(0, 0, 0, 0.24);
+    height: 50px;
+    width: 180px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
